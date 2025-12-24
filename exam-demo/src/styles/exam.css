@@ -53,3 +53,24 @@ input {
   display: flex;
   justify-content: space-between;
 }
+.option-container{
+  display: flex;
+  justify-content: space-around;
+}
+.choice-option {
+  display: flex ;
+  padding-inline: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  align-items: center;
+  width: fit-content;
+  min-width: max-content;
+}
+
+.choice-option input[type="radio"] {
+  width: fit-content;
+}
+.choice-option:hover {
+  background-color: #6a97e4;
+  border-radius: 4px;
+}

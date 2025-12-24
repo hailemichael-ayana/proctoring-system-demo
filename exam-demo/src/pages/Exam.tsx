@@ -3,11 +3,37 @@ import { useExam } from "../hooks/useExam";
 import "../styles/exam.css";
 import {useNavigate} from 'react-router-dom'
 import CameraPreview from "../components/CameraPreview";
+
 const QUESTIONS = [
-  { id: "q1", text: "What is React?" },
-  { id: "q2", text: "What is a Promise?" },
-  { id: "q3", text: "Explain useMemo." },
+  { 
+    id: "q1", 
+    type: "short", 
+    text: "Explain the difference between functional and object-oriented programming." 
+  },
+  { 
+    id: "q2", 
+    type: "choice", 
+    text: "Which software development model emphasizes iterative delivery?", 
+    options: ["Waterfall", "Agile", "V-Model", "Spiral"] 
+  },
+  { 
+    id: "q3", 
+    type: "short", 
+    text: "What are the main challenges in scaling distributed systems?" 
+  },
+  { 
+    id: "q4", 
+    type: "choice", 
+    text: "Which of the following is NOT a SOLID principle?", 
+    options: ["Single Responsibility", "Open/Closed", "Liskov Substitution", "Concurrency"] 
+  },
+  { 
+    id: "q5", 
+    type: "short", 
+    text: "Explain the purpose of unit testing and how it differs from integration testing." 
+  },
 ];
+
 
 export default function Exam() {
   const { answers, updateAnswer, status,violations,connection } = useExam("exam-123");
@@ -47,15 +73,35 @@ tabIndex={0}
 </div>
 {violations>0&&<p className="violations">Violations: {violations}</p>}
 
-      {QUESTIONS.map((q) => (
-        <div key={q.id} className="question">
-          <p>{q.text}</p>
-          <input
-            value={answers[q.id] || ""}
-            onChange={(e) => updateAnswer(q.id, e.target.value)}
-          />
-        </div>
-      ))}
+       {QUESTIONS.map((q) => (
+          <div key={q.id} className="question">
+            <p>{q.text}</p>
+
+            {q.type === "short" ? (
+              <input
+                type="text"
+                value={answers[q.id] || ""}
+                onChange={(e) => updateAnswer(q.id, e.target.value)}
+              />
+            ) : (
+              <div className="option-container">
+             {   q?.options?.map((opt) => (
+                  <label key={opt} className="choice-option">
+                    <input
+                      type="radio"
+                      name={q.id}
+                      value={opt}
+                      checked={answers[q.id] === opt}
+                      onChange={(e) => updateAnswer(q.id, e.target.value)}
+                    />
+                    {opt}
+                  </label>
+                ))}
+
+              </div>
+            )}
+          </div>
+        ))}
     </div>
     <CameraPreview/>
     </>
