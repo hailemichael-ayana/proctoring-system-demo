@@ -39,11 +39,11 @@ export default function Exam() {
   const { answers, updateAnswer, status,violations,connection } = useExam("exam-123");
   const navigate = useNavigate();
   
-  // useEffect(() => {
-  //   if (!document.fullscreenElement) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (!document.fullscreenElement) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <>
