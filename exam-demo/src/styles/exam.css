@@ -1,0 +1,55 @@
+.exam {
+  max-width: 600px;
+  margin: auto;
+  font-family: Arial, sans-serif;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+}
+
+.status {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.status.saving {
+  color: orange;
+}
+
+.status.synced {
+  color: green;
+}
+
+.status.waiting {
+  color: orange;
+}
+.connection {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+
+.connection.online {
+  color: green;
+}
+
+.connection.offline {
+  color: red;
+}
+.violations {
+  color: red;
+  font-weight: bold;
+}
+.flex-container{
+  height: fit-content;
+  padding: 0;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+}

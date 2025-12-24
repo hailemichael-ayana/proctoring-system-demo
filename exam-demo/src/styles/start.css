@@ -1,0 +1,17 @@
+.start {
+  max-width: 500px;
+  margin: 100px auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.start ul {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.start button {
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
